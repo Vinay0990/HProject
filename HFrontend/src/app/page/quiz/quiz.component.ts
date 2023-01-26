@@ -27,15 +27,13 @@ export class QuizComponent implements OnInit {
 
   onScoreChange(answer: any) {
     this.score[answer.id] = parseInt(answer.score);
-    console.log(this.score);
 
     this.totalScore = this.score.reduce((partialSum, a) => partialSum + a, 0);
     console.log(this.totalScore);
   }
 
   onSubmit() {
-    this.router.navigate([''], {
-      queryParams: { finalScore: this.totalScore },
-    });
+    this.quizService.setFinalScore(this.totalScore);
+    this.router.navigateByUrl('', { state: { finalScore: this.totalScore } });
   }
 }

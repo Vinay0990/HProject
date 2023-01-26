@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { QuizService } from 'src/app/services/quiz.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,7 +8,14 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  constructor(private Activatedroute: ActivatedRoute, private router: Router) {}
+  constructor(
+    private quizService: QuizService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
-  ngOnInit(): void {}
+  totalScore!: number;
+  ngOnInit(): void {
+    this.totalScore = this.quizService.getFinalScore();
+  }
 }

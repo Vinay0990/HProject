@@ -1,1 +1,6 @@
 <div class="jumbotron my-4 text-center"><h1>Welcome to H-Survey</h1></div>
+
+<div class="jumbotron my-4 text-center" *ngIf="totalScore">
+  <h3>Thank you for taking the Quiz</h3>
+  {{ totalScore }}
+</div>

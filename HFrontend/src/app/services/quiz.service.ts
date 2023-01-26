@@ -10,6 +10,16 @@ export class QuizService {
 
   API: string = 'http://localhost:8080/api/v1/survey/randomSurvey';
 
+  finalScore!: number;
+
+  setFinalScore(num: number) {
+    this.finalScore = num;
+  }
+
+  getFinalScore() {
+    return this.finalScore;
+  }
+
   getSurveyData() {
     return this.http.get<Question[]>(this.API);
   }
