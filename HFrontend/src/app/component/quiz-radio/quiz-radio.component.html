@@ -1,0 +1,16 @@
+<div class="card">
+  <strong>{{ question.question }}</strong>
+  <div>
+    <span class="form-check form-check-inline" *ngFor="let a of options">
+      <input
+        class="form-check-input"
+        type="radio"
+        value="{{ a.value }}"
+        name="{{ question.id }}"
+        [(ngModel)]="answer.score"
+        (ngModelChange)="onChange($event)"
+      />
+      <label class="form-check-label">{{ a.label }}</label>
+    </span>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<form (ngSubmit)="onSubmit()">
+  <div *ngFor="let question of questions; let i = index">
+    <div class="row">
+      <div class="col">
+        <div *ngIf="question.type == 'Team Satisfaction'">
+          <app-quiz-radio
+            [index]="i"
+            [question]="question"
+            (scoreEvent)="onScoreChange($event)"
+          ></app-quiz-radio>
+          <hr />
+        </div>
+        <div *ngIf="question.type == 'Job Satisfaction'">
+          <app-quiz-button
+            [index]="i"
+            [question]="question"
+            (scoreEvent)="onScoreChange($event)"
+          ></app-quiz-button>
+        </div>
+        <div *ngIf="question.type == 'Workplace'">
+          <app-quiz-slider
+            [index]="i"
+            [question]="question"
+            (scoreEvent)="onScoreChange($event)"
+          ></app-quiz-slider>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="button" type="submit">Submit</button>
+</form>

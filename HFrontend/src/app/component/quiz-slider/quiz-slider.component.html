@@ -1,0 +1,10 @@
+<div class="card">
+  <strong>{{ question.question }}</strong>
+  <div>
+    <ngx-slider
+      [(value)]="answer.score"
+      [options]="options"
+      (valueChange)="onChange()"
+    ></ngx-slider>
+  </div>
+</div>

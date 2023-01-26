@@ -1,0 +1,18 @@
+<div class="card">
+  <strong>{{ question.question }}</strong>
+  <div class="btn-group" role="group">
+    <span *ngFor="let a of options">
+      <button
+        [ngClass]="{
+          'btn btn-outline-secondary': toggle,
+          'btn btn-outline-primary': !toggle
+        }"
+        type="button"
+        value="{{ a.label }}"
+        (click)="onChange($event)"
+      >
+        {{ a.label }}
+      </button>
+    </span>
+  </div>
+</div>
